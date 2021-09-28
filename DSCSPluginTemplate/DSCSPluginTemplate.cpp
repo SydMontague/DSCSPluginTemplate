@@ -10,15 +10,14 @@ class TemplatePlugin : public BasePlugin {
 public:
 	using BasePlugin::BasePlugin;
 	void onEnable();
-	PluginInfo getPluginInfo();
-
+	const PluginInfo getPluginInfo();
 };
 
 void TemplatePlugin::onEnable() {
-	this->modLoader->addSquirrelFunction("DSCSModLoader", "TestFunction", SQUIRREL_AWAY(TestFunction));
+	modLoader->addSquirrelFunction("DSCSModLoader", "TestFunction", SQUIRREL_AWAY(TestFunction));
 }
 
-PluginInfo TemplatePlugin::getPluginInfo() {
+const PluginInfo TemplatePlugin::getPluginInfo() {
 	PluginInfo info;
 	info.apiVersion = { 0, 0, 0 };
 	info.version = { 1, 0, 0 };
