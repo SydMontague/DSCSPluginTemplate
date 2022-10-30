@@ -18,7 +18,7 @@ add_library (DSCSPluginTemplate SHARED)
 
 target_sources(DSCSPluginTemplate
     PRIVATE
-    "DSCSPluginTemplate/DSCSPluginTemplate.cpp"
+    "src/DSCSPluginTemplate.cpp"
 )
 
 target_link_libraries(DSCSPluginTemplate PRIVATE DSCSModLoader)
