@@ -1,10 +1,24 @@
-﻿cmake_minimum_required (VERSION 3.20)
+﻿cmake_minimum_required (VERSION 3.21)
 
 project ("DSCSPluginTemplate")
 
 set(CMAKE_CXX_STANDARD 20)
 
-find_library(DSCSMODLOADER_LIBRARY DSCSModLoader)
-include_directories(${DSCSMODLOADER_INCLUDE_DIR})
+include(cmake/CPM.cmake)
 
-add_subdirectory ("DSCSPluginTemplate")
+# --- Dependencies ---
+CPMAddPackage(
+  NAME DSCSModLoader
+  GITHUB_REPOSITORY "SydMontague/DSCSModLoader"
+  GIT_TAG "72496efb53cada499b77ee28df91775fdaf96c6c"
+)
+
+# --- Building ---
+add_library (DSCSPluginTemplate SHARED)
+
+target_sources(DSCSPluginTemplate
+    PRIVATE
+    "DSCSPluginTemplate/DSCSPluginTemplate.cpp"
+)
+
+target_link_libraries(DSCSPluginTemplate PRIVATE DSCSModLoader)
