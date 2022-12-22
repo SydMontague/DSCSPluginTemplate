@@ -10,7 +10,7 @@ include(cmake/CPM.cmake)
 CPMAddPackage(
   NAME DSCSModLoader
   GITHUB_REPOSITORY "SydMontague/DSCSModLoader"
-  GIT_TAG "72496efb53cada499b77ee28df91775fdaf96c6c"
+  GIT_TAG "33f18ca2e3112648ffa31633517c5b1da4d8501c"
 )
 
 # --- Building ---

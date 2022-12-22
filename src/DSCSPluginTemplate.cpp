@@ -15,7 +15,7 @@ public:
 
 void TemplatePlugin::onEnable()
 {
-    modLoader->addSquirrelFunction("DSCSModLoader", "TestFunction", SQUIRREL_AWAY(TestFunction));
+    modLoader.addSquirrelFunction("DSCSModLoader", "TestFunction", SQUIRREL_AWAY(TestFunction));
 }
 
 const PluginInfo TemplatePlugin::getPluginInfo()
@@ -27,7 +27,7 @@ const PluginInfo TemplatePlugin::getPluginInfo()
     return info;
 }
 
-extern "C" __declspec(dllexport) TemplatePlugin* getPlugin(DSCSModLoader* modLoader)
+extern "C" __declspec(dllexport) TemplatePlugin* getPlugin(DSCSModLoader& modLoader)
 {
     return new TemplatePlugin(modLoader);
 }
